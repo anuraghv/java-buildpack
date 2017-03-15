@@ -40,9 +40,9 @@ module JavaBuildpack::Util
 
         if file.exist?
           configuration = YAML.load_file(file)
-          logger.debug { "Configuration from #{file}: #{configuration}" } if should_log
+          logger.error { "###Configuration from #{file}: #{configuration}" } if should_log
         else
-          logger.debug { "No configuration file #{file} found" } if should_log
+          logger.error { "###No configuration file #{file} found" } if should_log
         end
 
         configuration || {}
