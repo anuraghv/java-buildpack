@@ -45,7 +45,7 @@ module JavaBuildpack::Util
     #
     # @return [Integer] A numerical representation of the comparison between two instances
     def <=>(other)
-      comparison = 0
+      comparison = a[/^\d+/].to_i <=> b[/^\d+/].to_i
       i = 0
       while comparison == 0 && i < 3
         comparison = self[i].to_i <=> other[i].to_i
