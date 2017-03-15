@@ -37,7 +37,7 @@ module JavaBuildpack::Util
       # @return [Hash] the configuration or an empty hash if the configuration file does not exist
       def load(identifier, should_log = true)
         file = CACHE_DIRECTORY + "#{identifier}.yml"
-
+      logger.error{"###Configuration from #{file}:"}
         if file.exist?
           configuration = YAML.load_file(file)
           logger.error { "###Configuration from #{file}: #{configuration}" } if should_log
